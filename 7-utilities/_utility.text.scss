@@ -1,0 +1,30 @@
+/*----------------------------------------------------------------------------*\
+   TEXT
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * Utility classes for styling text.
+ *
+ */
+
+.u-text-left         { text-align: left !important; }
+.u-text-center       { text-align: center !important; }
+.u-text-right        { text-align: right !important; }
+
+.u-text-serif        { font-family: $ui-serif !important; }
+.u-text-sans         { font-family: $ui-sans !important; }
+.u-text-mono         { font-family: $ui-mono !important; }
+
+.u-text-regular      { font-weight: 400 !important; }
+.u-text-bold         { font-weight: 700 !important; }
+.u-text-light        { font-weight: 300 !important; }
+.u-text-plain        { font-style: normal !important; }
+.u-text-oblique      { font-style: oblique !important; }
+
+.u-text-l            { font-size: 1em + 0.125em !important; }
+.u-text-xl           { font-size: 1em + 0.25em !important; }
+.u-text-s            { font-size: 1em - 0.125em !important; }
+.u-text-xs           { font-size: 1em - 0.25em !important; }
+
+.u-text-compact      { line-height: $ui-line-height - 0.25 !important; }
+.u-text-compress     { line-height: 1 !important; }

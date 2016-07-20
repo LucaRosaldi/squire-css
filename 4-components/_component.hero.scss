@@ -1,0 +1,37 @@
+/*----------------------------------------------------------------------------*\
+   HERO
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * Banner with centered textual content. Contains a photo
+ * background (usually inline-styled) and a text-scrim mask.
+ *
+ */
+
+.c-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../img/headers/home.jpg');
+  background-position: 50% 80%;
+  background-size: cover;
+  box-shadow: 0px 10px 30px rgba( #26211b, 0.5 );
+
+  // mask
+  &:before {
+    @extend %coverer;
+    content: "";
+    background: rgba( $black, 0.45 );
+    background: linear-gradient( 0deg,
+      rgba( $black, 0.35 ) 0%,
+      rgba( $black, 0.45 ) 65%,
+      rgba( $black, 0.55 ) 100%
+    );
+  }
+}
+
+.c-hero--fullscreen {
+  min-height: calc( 100vh - 140px );
+  @include bp-large { min-height: 100vh; }
+}

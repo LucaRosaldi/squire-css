@@ -1,0 +1,52 @@
+/*----------------------------------------------------------------------------*\
+   SITE
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * The main components of the site, such as the
+ * site header, content and footer.
+ *
+ */
+
+    /**
+     *  Site sponsors (by A&O e Famila)
+     */
+    .site-sponsors {
+      position: absolute;
+      z-index: layer( 'topbar' );
+      margin: auto;
+      color: rgba( $white, 0.5 );
+
+      > * {
+        width: auto;
+        height: 30px;
+        margin-right: 0.5rem;
+        font-size: 13px;
+        line-height: 32px;
+      }
+
+      @include bp-large {
+        position: absolute;
+        left: $ui-unit; top: $ui-unit;
+      }
+    }
+
+    /**
+     * The site header.
+     */
+    .site-header {
+      z-index: 10;
+    }
+
+
+    /**
+     * The site content.
+     */
+    .site-content {
+    }
+
+    /**
+     * The site footer.
+     */
+    .site-footer {
+    }

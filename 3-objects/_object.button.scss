@@ -1,0 +1,143 @@
+/*----------------------------------------------------------------------------*\
+    BUTTON
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ *  Buttons. Just buttons.
+ *
+ */
+$button-border-width:                   0;
+$button-ghost-border-width:             2px;
+
+$button-exposure-factor:                10;  // Color light difference in tint/shade states
+$button-transition:                     all 250ms linear;
+
+$button-primary-color:                  $white;
+$button-primary-background:             $ui-color-accent;
+$button-primary-border-color:           $ui-color-accent;
+
+$button-secondary-color:                $gray-65;
+$button-secondary-background:           $gray-15;
+$button-secondary-border-color:         $gray-15;
+
+$button-success-color:                  $white;
+$button-success-background:             $ui-color-success;
+$button-success-border-color:           $ui-color-success;
+
+$button-error-color:                    $white;
+$button-error-background:               $ui-color-error;
+$button-error-border-color:             $ui-color-error;
+
+
+/**
+ * Base button styles.
+ */
+.o-button {
+  position: relative;
+  cursor: pointer;
+
+  // Box model
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 1em 1.5em;
+
+  // Typography
+  font-weight: normal;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+
+  // Effects
+  text-shadow: none;
+  border-radius: 20px;
+  transition: all 200ms linear;
+
+  // default colors
+  border: 0 solid transparent;
+  background-color: $ui-color-accent;
+  color: $white;
+
+  &:hover {
+    background-color: lighten( $ui-color-accent, 6 );
+    color: $white;
+  }
+
+  &:active {
+    background-color: darken( $ui-color-accent, 6 );
+    color: $white;
+  }
+
+}
+
+/**
+ * These buttons will fill the entirety of their container.
+ */
+.o-button--full {
+  width: 100%;
+  text-align: center;
+}
+
+/**
+ * Button style modifiers.
+ */
+.o-button--pill { border-radius: 250px; }
+.o-button--hard { border-radius: 0; }
+
+/**
+ * Button height modifiers.
+ */
+.o-button--short {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+.o-button--tall {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+/**
+ * Inactive, disabled buttons.
+ */
+.o-button:disabled,
+.o-button[disabled],
+.o-button[disabled]:hover,
+.o-button[disabled]:active,
+.o-button[disabled]:focus,
+.o-button--disabled,
+.o-button--disabled:hover,
+.o-button--disabled:active,
+.o-button--disabled:focus {
+  opacity: .75;
+  cursor: default;
+  pointer-events: none;
+}
+
+/**
+ * Make the button inherit sizing from its parent.
+ * For buttons which are inserted inside paragraphs or titles.
+ */
+.o-button--natural {
+  vertical-align: baseline;
+  line-height: inherit;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+/**
+ * Color variants.
+ */
+
+// success
+.o-button--success {
+  background-color: $ui-color-success;
+  color: $white;
+  &:hover { background-color: tint( $ui-color-success, 10 ); }
+}
+
+// error
+.o-button--error {
+  background-color: $ui-color-error;
+  color: $white;
+  &:hover { background-color: tint( $ui-color-error, 10 ); }
+}

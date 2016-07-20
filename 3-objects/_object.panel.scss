@@ -1,0 +1,30 @@
+/*----------------------------------------------------------------------------*\
+   PANELS
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * Panels are padded (boxed) blocks of content.
+ *
+ **/
+$o-panel-padding:            $ui-unit;
+$o-panel-color:              $ui-color-text;
+$o-panel-background:         $ui-color-mask;
+$o-panel-border:             1px solid $ui-color-border;
+
+.o-panel {
+  position: relative;
+  display: block;
+  padding: $o-panel-padding;
+  border: $o-panel-border;
+  background: $o-panel-background;
+  color: $o-panel-color;
+}
+.o-panel--s {
+  padding: half( $o-panel-padding );
+}
+.o-panel--l {
+  padding: multiply( $o-panel-padding, 1.5 );
+}
+.o-panel--xl {
+  padding: double( $o-panel-padding );
+}

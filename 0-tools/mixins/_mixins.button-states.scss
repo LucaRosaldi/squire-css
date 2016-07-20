@@ -1,0 +1,70 @@
+/*----------------------------------------------------------------------------*\
+    BUILD BUTTON STATES
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ *  Builder for button states variants.
+ *
+ *  This tool generates placeholders for each of these variants:
+ *
+ *  %button--[name]--default
+ *  %button--[name]--tint
+ *  %button--[name]--shade
+ *  %button--[name]--inverse
+ *  %button--[name]--ghost
+ *
+ *  This approach allows for great customization when it comes
+ *  to styling buttons. For example, we can choose independently
+ *  the default, hover and active states, and we can switch them
+ *  to our likes. We can even @extend the states within our site
+ *  to create unique buttons styles on the fly, without creating
+ *  a different class each time.
+ *
+ *  An example:
+ *
+ *  .button--warning {
+ *    @extend %button--warning--default;
+ *    &:hover { @extend %button--warning--inverse; }
+ *  }
+ *  .button--warning--ghost {
+ *    @extend %button--warning--ghost;
+ *    &:hover { @extend %button--warning--default; }
+ *  }
+ *
+ *
+ *  @param  $name              The button class name (ex. orange or warning)
+ *  @param  $color             The button text color
+ *  @param  $background-color  The button background color
+ *  @param  $border-color      The button border color. Default is transparent.
+ *  @param  $exposure          The tint/shade factor. Default is 10.
+ *
+ */
+@mixin button-states( $name, $color, $background-color, $border-color: transparent, $exposure: 10 ) {
+
+  %button--#{$name}--default {
+    border-color: $border-color;
+    background-color: $background-color;
+    color: $color;
+  }
+  %button--#{$name}--tint {
+    border-color: tint( $border-color, 10 );
+    background-color: tint( $background-color, 10 );
+    color: $color;
+  }
+  %button--#{$name}--shade {
+    border-color: shade( $border-color, 10 );
+    background-color: shade( $background-color, 10 );
+    color: $color;
+  }
+  %button--#{$name}--inverse {
+    border-color: $color;
+    background-color: $color;
+    color: $background-color;
+  }
+  %button--#{$name}--ghost {
+    border-color: $background-color;
+    background-color: transparent;
+    color: $background-color;
+  }
+
+}

@@ -1,0 +1,53 @@
+/*----------------------------------------------------------------------------*\
+   BREAKPOINTS / MEDIA QUERIES
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * Create media queries for specific widths.
+ *
+ */
+$bp-medium: 640px !default;
+$bp-large:  960px !default;
+$bp-wide:  1140px !default;
+
+/**
+ * Generate a media query for the desired width.
+ *
+ * @param   $breakpoint  The desired breakpoint value
+ * @param   $feature    Operator
+ * @param   $media       Whether this is a min-width or max-width breakpoint
+ * @return  $feature    Whether this is a min-width or max-width breakpoint
+ */
+@mixin bp( $breakpoint, $feature: 'min-width', $media: screen ) {
+  @media #{$media} and ( #{$feature}: $breakpoint ) {
+    @content;
+  }
+}
+
+/**
+ * Shortcuts for common breakpoints.
+ */
+
+@mixin bp-small {
+  @include bp( $bp-medium, 'max-width' ) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @include bp( $bp-medium ) {
+    @content;
+  }
+}
+
+@mixin bp-large {
+  @include bp( $bp-large ) {
+    @content;
+  }
+}
+
+@mixin bp-wide {
+  @include bp( $bp-wide ) {
+    @content;
+  }
+}

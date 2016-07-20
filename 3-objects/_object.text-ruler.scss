@@ -1,0 +1,48 @@
+/*----------------------------------------------------------------------------*\
+   TEXT RULER
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * A ruler which has text at the center.
+ *
+ */
+$text-ruler-border:   1px dashed $gray-50;
+$text-ruler-padding:  1rem;
+$text-ruler-margin:   $ui-unit;
+
+/**
+ * Default text ruler.
+ *
+ * 1. ensure the words do not break
+ * 2. space the central content
+ * 3. fallback for older browsers
+ */
+.o-text-ruler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: $text-ruler-margin auto;
+  text-align: center;
+  white-space: nowrap;                              /* 1 */
+
+  &:before,
+  &:after {
+    content: '';
+    width: 100%;
+    border-top: $text-ruler-border;
+  }
+  &:before { margin-right: $text-ruler-padding; }   /* 2 */
+  &:after  { margin-left:  $text-ruler-padding; }   /* 2 */
+
+  .no-flexbox & {                                   /* 3 */
+    display: inline-block;
+    &:before, &:after { display: none; }
+  }
+
+}
+
+/**
+ * Spacing variants.
+ */
+.o-text-ruler--spaced { margin: $text-ruler-margin * 2 auto; }
+.o-text-ruler--compressed { margin: $text-ruler-margin / 2 auto; }

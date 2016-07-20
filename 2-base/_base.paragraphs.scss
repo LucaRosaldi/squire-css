@@ -1,0 +1,36 @@
+/*----------------------------------------------------------------------------*\
+    PARAGRAPHS
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ *  Basic styles for the paragraph tag.
+ *
+ */
+
+/**
+ * Enable opentype features.
+ */
+p {
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+/**
+ *  Shortened top margin for subsequent paragraphs.
+ */
+p + p {
+  margin-top: half( $ui-unit );
+}
+
+/**
+ *  The browsehappy section is used to inform
+ *  users that their browser is outdated.
+ */
+/*p*/.browsehappy {
+  width: 100%;
+  padding: half( $ui-unit );
+  text-align: center;
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+}

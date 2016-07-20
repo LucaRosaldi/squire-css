@@ -1,0 +1,63 @@
+/*----------------------------------------------------------------------------*\
+   HEADINGS
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styles for the heading tags.
+ *
+ * The typographic scale is based on golden ratio,
+ * and adapts the fonts sizes as the root font size
+ * changes between breakpoints (@see _base.scss).
+ *
+ */
+$heading-font-family:  $ui-font-family;
+$heading-color:        $ui-color-headings;
+$heading-line-height:  1.1;
+
+
+/**
+ * General styles.
+ *
+ * 1. Compensate for line-height baseline offset with negative bottom margin.
+ * 2. Additional margin for headings which come after a paragraph.
+ */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-bottom: #{ ( 1.0 - $heading-line-height ) }em;   /* 1 */
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  color: $heading-color;
+  p + & { margin-top: multiply( $ui-unit, 1.5 ); }        /* 2 */
+}
+
+/**
+ * Small screen heading sizes.
+ */
+h1, .h1                   { font-size: 2.25em; }
+h2, .h2                   { font-size: 1.5em; }
+h3, .h3                   { font-size: 1.324em; }
+h4, .h4, h5, .h5, h6, .h6 { font-size: 1em; }
+
+/**
+ * Medium and large screens heading sizes.
+ */
+@include bp-medium {
+  h1, .h1                 { font-size: 3em; }
+  h2, .h2                 { font-size: 1.75em; }
+  h3, .h3                 { font-size: 1.483em; }
+}
+
+/**
+ * Medium and large screens heading sizes.
+ */
+@include bp-large {
+  h1, .h1                 { font-size: 3.75em; }
+  h2, .h2                 { font-size: 2.25em; }
+  h3, .h3                 { font-size: 1.618em; }
+  h4, .h4                 { font-size: 1.146em; }
+}
+

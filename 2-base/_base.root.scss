@@ -1,0 +1,21 @@
+/*----------------------------------------------------------------------------*\
+   ROOT
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styling for root elements (html and body).
+ *
+ */
+
+html {
+  overflow-y: scroll;
+  min-height: 100%;
+
+  font-family: $ui-font-family;
+  font-size: rem( 14px );
+  @include bp-medium { font-size: rem( 15px ); }
+  @include bp( $bp-large )  { font-size: rem( 16px ); }
+  line-height: $ui-line-height;
+
+  color: $ui-color-text;
+}

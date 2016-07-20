@@ -1,0 +1,133 @@
+/*----------------------------------------------------------------------------*\
+   GRID SYSTEM
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ * A simple grid system based on floats.
+ *
+ */
+$grid-max-width: $bp-wide;
+$grid-columns:   12;
+$grid-gutters:   $ui-unit;
+
+/**
+ * Flexbox container.
+ */
+.g-flex {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/**
+ * Row of cells.
+ *
+ * 1. stretch the odd cells to fill the container width
+ */
+.g-row {
+  @extend .g-flex;
+  width: 100%;
+}
+.g-row--fill {
+  flex: 1 0 auto;  /* 1 */
+}
+.g-row--start {
+  justify-content: flex-start;
+}
+.g-row--center {
+  justify-content: center;
+}
+.g-row--end {
+  justify-content: flex-end;
+}
+.g-row--between {
+  justify-content: space-between;
+}
+.g-row--around {
+  justify-content: space-around;
+}
+.g-row--top {
+  align-items: flex-start;
+}
+.g-row--middle {
+  align-items: center;
+}
+.g-row--bottom {
+  align-items: flex-end;
+}
+.g-row--reverse {
+  flex-direction: row-reverse;
+}
+.g-row--no-gutters [class^="g-cell"] {
+  padding: 0;
+}
+
+/**
+ * Content.
+ *
+ * @param  {integer} $number  Number of columns which the content will span
+ * @param  {integer} $base    Maximum number of columns allowed
+ * @param  {string}  $gutter  Gutter between columns
+ */
+@mixin grid-width( $number: $grid-columns, $base: $grid-columns ) {
+  width: 100% * 1 / ( $base / $number );
+}
+[class^="g-cell"] {
+  @include grid-width( 12 );
+  flex: 0 0 auto;
+  padding: $grid-gutters / 2;
+}
+
+.g-cell      { @include grid-width( 12 ); }
+.g-cell-1\/2 { @include grid-width( 6 ); }
+.g-cell-1\/3 { @include grid-width( 4 ); }
+.g-cell-2\/3 { @include grid-width( 8 ); }
+.g-cell-1\/4 { @include grid-width( 3 ); }
+.g-cell-3\/4 { @include grid-width( 9 ); }
+
+@include bp-medium {
+  .g-cell\@m      { @include grid-width( 12 ); }
+  .g-cell-1\/2\@m { @include grid-width( 6 ); }
+  .g-cell-1\/3\@m { @include grid-width( 4 ); }
+  .g-cell-2\/3\@m { @include grid-width( 8 ); }
+  .g-cell-1\/4\@m { @include grid-width( 3 ); }
+  .g-cell-3\/4\@m { @include grid-width( 9 ); }
+}
+
+@include bp-large {
+  .g-cell\@l      { @include grid-width( 12 ); }
+  .g-cell-1\/2\@l { @include grid-width( 6 ); }
+  .g-cell-1\/3\@l { @include grid-width( 4 ); }
+  .g-cell-2\/3\@l { @include grid-width( 8 ); }
+  .g-cell-1\/4\@l { @include grid-width( 3 ); }
+  .g-cell-3\/4\@l { @include grid-width( 9 ); }
+}
+
+/**
+ * Centered container for the grid.
+ * By default, grid width is the largest breakpoint.
+ */
+.g-wrap {
+  max-width: $bp-wide;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $grid-gutters / 2;
+  padding-right: $grid-gutters / 2;
+}
+.g-wrap--m {
+  max-width: $bp-medium;
+}
+.g-wrap--l {
+  max-width: $bp-large;
+}
+
+/**
+ * Full-height container with centered content.
+ * Useful for heroes and modals.
+ */
+.g-cover {
+  @extend .g-flex;
+  min-height: 100vh;
+  align-items: center;
+}

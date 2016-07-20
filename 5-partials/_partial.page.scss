@@ -1,0 +1,32 @@
+/*----------------------------------------------------------------------------*\
+   PAGE
+\*----------------------------------------------------------------------------*/
+/**
+ *
+ *  Title used to separate chapters.
+ *
+ */
+
+.p-page {
+}
+
+  .p-page_title {
+  }
+
+  .o-page-subtitle {
+  }
+
+  .p-page_description {
+    max-width: 520px;
+    margin: 2rem auto 0;
+    font-size: 1.25em;
+  }
+
+  .p-page_chapter {
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $ui-color-accent;
+  }
